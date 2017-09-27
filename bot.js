@@ -207,7 +207,27 @@ function sendDefaultMessage(recipientId) {
     recipient: {
       id: recipientId
     },
-    message: joke_1
+    message: {
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"嗨咿～要不要聽我講個笑話？",
+          "buttons":[
+            {
+              "type":"postback",
+              "title":"好啊",
+              "payload":"yes"
+            },
+            {
+              "type":"postback",
+              "title":"不要",
+              "payload":"no"
+            }
+          ]
+        }
+      }
+    }
   };
   
   callSendAPI(messageData);
@@ -218,14 +238,7 @@ function tellJoke(recipientId) {
     recipient: {
       id: recipientId
     },
-    message: {
-      "attachment":{
-        "type":"image",
-        "payload":{
-          "url":"https://i.imgur.com/bvgRsBv.jpg",
-          "is_reusable":true
-        }
-      }
+    message: joke_1
     }
   };
     
