@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const path = require('path');
 var messengerButton = "<html><head><title>Facebook Messenger Bot</title></head><body><h1>Facebook Messenger Bot (YaYaYa)</h1>This is a bot based on Messenger Platform QuickStart. For more details, see their <a href=\"https://developers.facebook.com/docs/messenger-platform/guides/quick-start\">docs</a>.<script src=\"https://button.glitch.me/button.js\" data-style=\"glitch\"></script><div class=\"glitchButton\" style=\"position:fixed;top:20px;right:20px;\"></div></body></html>";
+var json_joke_1 = require('./joke_1.json');
+var joke_1 = JSON.parse(json_joke_1);
 
 
 // The rest of the code implements the routes for our Express server.
@@ -205,27 +207,7 @@ function sendDefaultMessage(recipientId) {
     recipient: {
       id: recipientId
     },
-    message: {
-      "attachment":{
-        "type":"template",
-        "payload":{
-          "template_type":"button",
-          "text":"嗨咿～要不要聽我講個笑話？",
-          "buttons":[
-            {
-              "type":"postback",
-              "title":"好啊",
-              "payload":"yes"
-            },
-            {
-              "type":"postback",
-              "title":"不要",
-              "payload":"no"
-            }
-          ]
-        }
-      }
-    }
+    message: joke_1
   };
   
   callSendAPI(messageData);

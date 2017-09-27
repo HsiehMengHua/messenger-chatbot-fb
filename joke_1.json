@@ -1,3 +1,21 @@
 {
-  "url":"https://imgur.com/a/giwBv"
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"嗨咿～要不要聽我講個笑話？",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"好啊",
+          "payload":"yes"
+        },
+        {
+          "type":"postback",
+          "title":"不要",
+          "payload":"no"
+        }
+      ]
+    }
+  }
 }
