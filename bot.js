@@ -204,12 +204,12 @@ function sendGetStartedMessage(recipientId) {
             {
               "type":"postback",
               "title":"好啊",
-              "payload":"payload for yes"
+              "payload":"他說好"
             },
             {
               "type":"postback",
               "title":"不要",
-              "payload":"payload for no"
+              "payload":"他說不要"
             }
           ]
         }
