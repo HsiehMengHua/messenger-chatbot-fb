@@ -121,12 +121,16 @@ function receivedPostback(event) {
   switch (payload) {
     case 'yes':
       tellJoke(senderID);
-      askOneMoreJoke(senderID);
+      setTimeout(function() {
+        askOneMoreJoke(senderID);
+      }, 2000);
       break;
     case 'no':
       sendTextMessage(senderID, "但我還是要講");
       tellJoke(senderID);
-      askOneMoreJoke(senderID);
+      setTimeout(function() {
+        askOneMoreJoke(senderID);
+      }, 2000);
       break;
     default:
       sendDefaultMessage(senderID);
