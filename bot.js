@@ -199,12 +199,12 @@ function sendDefaultMessage(recipientId) {
             {
               "type":"postback",
               "title":"好啊",
-              "payload":他說好
+              "payload":"他說好"
             },
             {
               "type":"postback",
               "title":"不要",
-              "payload":他說不要
+              "payload":"他說不要"
             }
           ]
         }
