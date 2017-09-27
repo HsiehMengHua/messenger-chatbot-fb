@@ -22,8 +22,5 @@
     "request": "^2.72.0",
     "express": "*",
     "body-parser": "*"
-  },
-  "get_started":{
-    "payload":"嗨咿～要不要聽我講個笑話？"
   }
 }

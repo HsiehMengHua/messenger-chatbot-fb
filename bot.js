@@ -70,6 +70,10 @@ app.post('/webhook', function (req, res) {
   }
 });
 
+app.on('postback:get_started', (payload, chat) => {
+	chat.say('get_started button clicked');
+});
+
 // Incoming events handling
 function receivedMessage(event) {
   var senderID = event.sender.id;
