@@ -123,6 +123,7 @@ function receivedPostback(event) {
       tellJoke(senderID);
       break;
     case 'no':
+      sendTextMessage(senderID, "但我還是要講");
       tellJoke(senderID);
       break;
     default:
@@ -224,7 +225,7 @@ function sendDefaultMessage(recipientId) {
   callSendAPI(messageData);
 }
 
-function tellJoke(recipientId){
+function tellJoke(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -234,6 +235,37 @@ function tellJoke(recipientId){
         "type":"image",
         "payload":{
           "url":"https://i.imgur.com/bvgRsBv.jpg"
+        }
+      }
+    }
+  };
+    
+  callSendAPI(messageData);
+}
+
+function oneMoreJoke(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"要不要再聽一個？",
+          "buttons":[
+            {
+              "type":"postback",
+              "title":"好啊",
+              "payload":"yes"
+            },
+            {
+              "type":"postback",
+              "title":"不要",
+              "payload":"no"
+            }
+          ]
         }
       }
     }
