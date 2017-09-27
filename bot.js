@@ -121,10 +121,12 @@ function receivedPostback(event) {
   switch (payload) {
     case 'yes':
       tellJoke(senderID);
+      askOneMoreJoke(senderID);
       break;
     case 'no':
       sendTextMessage(senderID, "但我還是要講");
       tellJoke(senderID);
+      askOneMoreJoke(senderID);
       break;
     default:
       sendDefaultMessage(senderID);
@@ -234,7 +236,8 @@ function tellJoke(recipientId) {
       "attachment":{
         "type":"image",
         "payload":{
-          "url":"https://i.imgur.com/bvgRsBv.jpg"
+          "url":"https://i.imgur.com/bvgRsBv.jpg",
+          "is_reusable":true
         }
       }
     }
@@ -243,7 +246,7 @@ function tellJoke(recipientId) {
   callSendAPI(messageData);
 }
 
-function oneMoreJoke(recipientId) {
+function askOneMoreJoke(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
