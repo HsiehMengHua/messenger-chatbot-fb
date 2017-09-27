@@ -93,6 +93,10 @@ function receivedMessage(event) {
       case 'generic':
         sendGenericMessage(senderID);
         break;
+        
+      case 'Get Started':
+      case '開始使用':
+        sendGetStartedMessage(senderID);
 
       default:
         sendTextMessage(senderID, messageText);
@@ -106,7 +110,6 @@ function receivedPostback(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
   var timeOfPostback = event.timestamp;
-  var postbackText = event.postback.message;
 
   // The 'payload' param is a developer-defined field which is set in a postback 
   // button for Structured Messages. 
@@ -118,7 +121,6 @@ function receivedPostback(event) {
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
   // sendTextMessage(senderID, "Postback called");
-  sendTextMessage(senderID, postbackText);
 }
 
 //////////////////////////
@@ -181,6 +183,37 @@ function sendGenericMessage(recipientId) {
     }
   };  
 
+  callSendAPI(messageData);
+}
+
+function sendGetStartedMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"嗨咿～要不要聽我講個笑話？",
+          "buttons":[
+            {
+              "type":"postback",
+              "title":"好啊",
+              "payload":"payload for yes"
+            },
+            {
+              "type":"postback",
+              "title":"不要",
+              "payload":"payload for no"
+            }
+          ]
+        }
+      }
+    }
+  };
+  
   callSendAPI(messageData);
 }
 
