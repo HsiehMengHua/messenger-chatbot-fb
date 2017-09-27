@@ -70,10 +70,6 @@ app.post('/webhook', function (req, res) {
   }
 });
 
-app.on('postback:get_started', (payload, chat) => {
-	chat.say('get_started button clicked');
-});
-
 // Incoming events handling
 function receivedMessage(event) {
   var senderID = event.sender.id;
@@ -98,13 +94,8 @@ function receivedMessage(event) {
         sendGenericMessage(senderID);
         break;
         
-      case 'Get Started':
-      case '開始使用':
-        sendGetStartedMessage(senderID);
-        break;
-
       default:
-        sendTextMessage(senderID, messageText);
+        sendDefaultMessage(senderID);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -193,7 +184,7 @@ function sendGenericMessage(recipientId) {
   callSendAPI(messageData);
 }
 
-function sendGetStartedMessage(recipientId) {
+function sendDefaultMessage(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
