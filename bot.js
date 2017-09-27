@@ -199,7 +199,9 @@ function sendDefaultMessage(recipientId) {
             {
               "type":"postback",
               "title":"好啊",
-              "payload":"他說好"
+              "payload":{
+                "url":"https://imgur.com/a/giwBv"
+              }
             },
             {
               "type":"postback",
