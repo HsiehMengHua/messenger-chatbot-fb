@@ -97,6 +97,7 @@ function receivedMessage(event) {
       case 'Get Started':
       case '開始使用':
         sendGetStartedMessage(senderID);
+        break;
 
       default:
         sendTextMessage(senderID, messageText);
@@ -114,6 +115,7 @@ function receivedPostback(event) {
   // The 'payload' param is a developer-defined field which is set in a postback 
   // button for Structured Messages. 
   var payload = event.postback.payload;
+  var text = JSON.stringify(payload);
 
   console.log("Received postback for user %d and page %d with payload '%s' " + 
     "at %d", senderID, recipientID, payload, timeOfPostback);
@@ -121,6 +123,7 @@ function receivedPostback(event) {
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
   // sendTextMessage(senderID, "Postback called");
+  sendTextMessage(senderID, text);
 }
 
 //////////////////////////
