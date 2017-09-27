@@ -110,7 +110,6 @@ function receivedPostback(event) {
   // The 'payload' param is a developer-defined field which is set in a postback 
   // button for Structured Messages. 
   var payload = event.postback.payload;
-  var text = JSON.stringify(payload);
 
   console.log("Received postback for user %d and page %d with payload '%s' " + 
     "at %d", senderID, recipientID, payload, timeOfPostback);
@@ -118,7 +117,17 @@ function receivedPostback(event) {
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
   // sendTextMessage(senderID, "Postback called");
-  sendTextMessage(senderID, text);
+  
+  switch (payload) {
+    case 'yes':
+      tellJoke(senderID);
+      break;
+    case 'no':
+      tellJoke(senderID);
+      break;
+    default:
+      sendDefaultMessage(senderID);
+  }
 }
 
 //////////////////////////
@@ -199,14 +208,12 @@ function sendDefaultMessage(recipientId) {
             {
               "type":"postback",
               "title":"好啊",
-              "payload":{
-                "url":"https://imgur.com/a/giwBv"
-              }
+              "payload":"yes"
             },
             {
               "type":"postback",
               "title":"不要",
-              "payload":"他說不要"
+              "payload":"no"
             }
           ]
         }
@@ -214,6 +221,24 @@ function sendDefaultMessage(recipientId) {
     }
   };
   
+  callSendAPI(messageData);
+}
+
+function tellJoke(recipientId){
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment":{
+        "type":"image",
+        "payload":{
+          "url":"https://i.imgur.com/bvgRsBv.jpg"
+        }
+      }
+    }
+  };
+    
   callSendAPI(messageData);
 }
 
