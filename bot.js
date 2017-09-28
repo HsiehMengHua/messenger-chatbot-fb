@@ -8,27 +8,6 @@ const request = require('request');
 const path = require('path');
 var messengerButton = "<html><head><title>Facebook Messenger Bot</title></head><body><h1>Facebook Messenger Bot (YaYaYa)</h1>This is a bot based on Messenger Platform QuickStart. For more details, see their <a href=\"https://developers.facebook.com/docs/messenger-platform/guides/quick-start\">docs</a>.<script src=\"https://button.glitch.me/button.js\" data-style=\"glitch\"></script><div class=\"glitchButton\" style=\"position:fixed;top:20px;right:20px;\"></div></body></html>";
 
-
-/*var jokes = [{
-  "question":{
-    "attachment":{
-      "type":"image",
-      "payload":{
-        "url":"https://i.imgur.com/bvgRsBv.jpg",
-        "is_reusable":true
-      }
-    }
-  }, 
-  "answer":{}
-},{
-  "question":{
-    "text":"為什麼哈利波特不吃冰？"
-  },
-  "answer":{
-    "text":"因為魔法少年賈修"
-  }
-}];*/
-
 const jokes = require('./jokes.js');
 
 
@@ -251,14 +230,25 @@ function sendDefaultMessage(recipientId) {
 }
 
 function tellJoke(recipientId) {
-  var messageData = {
+  var questionMessageData = {
     recipient: {
       id: recipientId
     },
     message: jokes[1].question
   };
-    
-  callSendAPI(messageData);
+  
+  var answerMessageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: jokes[1].answer
+  };
+  
+  callSendAPI(questionMessageData);
+  
+  setTimeout(function() {
+    callSendAPI(answerMessageData);
+  }, 3000);
 }
 
 function askOneMoreJoke(recipientId) {
@@ -291,7 +281,6 @@ function askOneMoreJoke(recipientId) {
     };
 
     callSendAPI(messageData);
-  }, 1000);
 }
 
 function callSendAPI(messageData) {
