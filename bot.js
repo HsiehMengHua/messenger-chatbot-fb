@@ -8,8 +8,6 @@ const request = require('request');
 const path = require('path');
 var messengerButton = "<html><head><title>Facebook Messenger Bot</title></head><body><h1>Facebook Messenger Bot (YaYaYa)</h1>This is a bot based on Messenger Platform QuickStart. For more details, see their <a href=\"https://developers.facebook.com/docs/messenger-platform/guides/quick-start\">docs</a>.<script src=\"https://button.glitch.me/button.js\" data-style=\"glitch\"></script><div class=\"glitchButton\" style=\"position:fixed;top:20px;right:20px;\"></div></body></html>";
 
-var joke_1 = loadjson("./joke_1.json");
-
 
 // The rest of the code implements the routes for our Express server.
 let app = express();
@@ -307,9 +305,10 @@ function callSendAPI(messageData) {
 
 function loadjson(json) {
   var xmlhttp = new XMLHttpRequest();
+  var obj;
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var obj = JSON.parse(this.responseText);
+          obj = JSON.parse(this.responseText);
       }
   };
   xmlhttp.open("GET", json, true);
