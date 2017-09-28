@@ -249,8 +249,7 @@ function tellJoke(recipientId) {
     recipient: {
       id: recipientId
     },
-    message: {
-      "speech": "",
+
       "messages": [{
         "type": 0,
         "speech": "哈利波特為什麼不吃冰"
@@ -258,7 +257,7 @@ function tellJoke(recipientId) {
         "type": 0,
         "speech": "因為魔法少年賈修"
       }]
-    }
+    
   };
     
   callSendAPI(messageData);
