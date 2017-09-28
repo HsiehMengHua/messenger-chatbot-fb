@@ -230,26 +230,25 @@ function sendDefaultMessage(recipientId) {
 }
 
 function tellJoke(recipientId) {
-  /*var questionMessageData = {
+  var questionMessageData = {
     recipient: {
       id: recipientId
     },
     message: jokes[1].question
-  };*/
+  };
   
-  var messageData = {
+  var answerMessageData = {
     recipient: {
       id: recipientId
     },
     message: jokes[1].answer
   };
   
-  //callSendAPI(questionMessageData);
-  callSendAPI(messageData);
+  callSendAPI(questionMessageData);
   
-  /*setTimeout(function() {
+  setTimeout(function() {
     callSendAPI(answerMessageData);
-  }, 3000);*/
+  }, 3000);
 }
 
 function askOneMoreJoke(recipientId) {
