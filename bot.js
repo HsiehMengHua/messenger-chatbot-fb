@@ -237,7 +237,7 @@ function tellJoke(recipientId) {
     message: jokes[1].question
   };*/
   
-  var answerMessageData = {
+  var messageData = {
     recipient: {
       id: recipientId
     },
@@ -245,7 +245,7 @@ function tellJoke(recipientId) {
   };
   
   //callSendAPI(questionMessageData);
-  callSendAPI(answerMessageData);
+  callSendAPI(messageData);
   
   /*setTimeout(function() {
     callSendAPI(answerMessageData);
