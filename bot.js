@@ -110,7 +110,6 @@ function receivedMessage(event) {
         sendDefaultMessage(senderID);
     }
     
-    if (messageText)
   } else if (messageAttachments) {
     sendTextMessage(senderID, "😂");
   }
