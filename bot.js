@@ -230,12 +230,12 @@ function sendDefaultMessage(recipientId) {
 }
 
 function tellJoke(recipientId) {
-  var questionMessageData = {
+  /*var questionMessageData = {
     recipient: {
       id: recipientId
     },
     message: jokes[1].question
-  };
+  };*/
   
   var answerMessageData = {
     recipient: {
