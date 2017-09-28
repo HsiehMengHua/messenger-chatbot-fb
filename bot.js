@@ -281,7 +281,7 @@ function askOneMoreJoke(recipientId) {
     };
 
     callSendAPI(messageData);
-  }, 1000);
+  }, 4000);
 }
 
 function callSendAPI(messageData) {
