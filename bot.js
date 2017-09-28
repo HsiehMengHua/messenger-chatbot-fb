@@ -95,10 +95,22 @@ function receivedMessage(event) {
       case 'generic':
         sendGenericMessage(senderID);
         break;
+      case '好':
+      case '好啊':
+      case '好阿':
+        tellJoke(senderID);
+        askOneMoreJoke(senderID);
+        break;
+      case '不':
+      case '不要':
+        sendTextMessage(senderID, "不要就不要");
+        break;
         
       default:
         sendDefaultMessage(senderID);
     }
+    
+    if (messageText)
   } else if (messageAttachments) {
     sendTextMessage(senderID, "😂");
   }
