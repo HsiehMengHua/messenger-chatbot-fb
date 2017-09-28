@@ -98,8 +98,7 @@ function receivedMessage(event) {
       case '好':
       case '好啊':
       case '好阿':
-        tellJoke(senderID);
-        askOneMoreJoke(senderID);
+        sendTextMessage(senderID, "可是我不想講");
         break;
       case '不':
       case '不要':
