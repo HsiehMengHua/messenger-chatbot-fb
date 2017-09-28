@@ -249,15 +249,16 @@ function tellJoke(recipientId) {
     recipient: {
       id: recipientId
     },
-    message: jokes[0] /*{
-      "attachment":{
-        "type":"image",
-        "payload":{
-          "url":"https://i.imgur.com/bvgRsBv.jpg",
-          "is_reusable":true
-        }
-      }
-    }*/
+    message: {
+      "speech": "",
+      "messages": [{
+        "type": 0,
+        "speech": "哈利波特為什麼不吃冰"
+      }, {
+        "type": 0,
+        "speech": "因為魔法少年賈修"
+      }]
+    }
   };
     
   callSendAPI(messageData);
