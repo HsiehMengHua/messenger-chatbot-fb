@@ -16,4 +16,11 @@ module.exports = [{
   "answer":{
     "text":"因為魔法少年賈修"
   }
+},{
+  "question":{
+    "text":"哪個姓氏的人脾氣最差？"
+  },
+  "answer":{
+    "text":"呂\n\n\n\n\n屢試不爽"
+  }
 }];
