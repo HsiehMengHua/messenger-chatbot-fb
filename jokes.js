@@ -38,7 +38,7 @@ module.exports = [{
   }
 },{
   "question":{
-    "text":"為什麼獨甲仙會絕種？"
+    "text":"為什麼獨角仙會絕種？"
   },
   "answer":{
     "text":"因為牠是甲蟲"
