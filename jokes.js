@@ -24,6 +24,25 @@ module.exports = [{
   }
 },{
   "question":{
+    "attachment":{
+      "type":"image",
+      "payload":{
+        "url":"https://i.imgur.com/9jTUhts.png",
+        "is_reusable":true
+      }
+    }
+  },
+  "answer":{
+    "attachment":{
+      "type":"image",
+      "payload":{
+        "url":"https://i.imgur.com/aTf3xgv.png",
+        "is_reusable":true
+      }
+    }
+  }
+},{
+  "question":{
     "text":"為什麼哈利波特不吃冰？"
   },
   "answer":{
@@ -56,5 +75,12 @@ module.exports = [{
   },
   "answer":{
     "text":"畢書盡"
+  }
+},{
+  "question":{
+    "text":"這台車為什麼跑這麼快？"
+  },
+  "answer":{
+    "text":"我想其中另有引擎"
   }
 }];

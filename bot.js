@@ -251,7 +251,7 @@ function tellJoke(recipientId) {
   
   setTimeout(function() {
     callSendAPI(answerMessageData);
-  }, 4000);
+  }, 6000);
 }
 
 function askOneMoreJoke(recipientId) {
@@ -284,7 +284,7 @@ function askOneMoreJoke(recipientId) {
     };
     
     callSendAPI(messageData);
-  }, 4000);
+  }, 7000);
 }
 
 function callSendAPI(messageData) {
