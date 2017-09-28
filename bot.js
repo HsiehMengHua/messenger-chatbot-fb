@@ -237,14 +237,14 @@ function tellJoke(recipientId) {
     recipient: {
       id: recipientId
     },
-    message: jokes[1].question
+    message: jokes[jokeIndex].question
   };
   
   var answerMessageData = {
     recipient: {
       id: recipientId
     },
-    message: jokes[1].answer
+    message: jokes[jokeIndex].answer
   };
   
   callSendAPI(questionMessageData);
