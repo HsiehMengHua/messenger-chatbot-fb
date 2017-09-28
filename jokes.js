@@ -1,0 +1,19 @@
+module.exports = [{
+  "question":{
+    "attachment":{
+      "type":"image",
+      "payload":{
+        "url":"https://i.imgur.com/bvgRsBv.jpg",
+        "is_reusable":true
+      }
+    }
+  }, 
+  "answer":{}
+},{
+  "question":{
+    "text":"為什麼哈利波特不吃冰？"
+  },
+  "answer":{
+    "text":"因為魔法少年賈修"
+  }
+}];

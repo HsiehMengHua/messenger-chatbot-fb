@@ -10,18 +10,6 @@ var messengerButton = "<html><head><title>Facebook Messenger Bot</title></head><
 
 
 /*var jokes = [{
-  "attachment":{
-    "type":"image",
-    "payload":{
-      "url":"https://i.imgur.com/bvgRsBv.jpg",
-      "is_reusable":true
-    }
-  }
-}, {
-  
-}];*/
-
-var jokes = [{
   "question":{
     "attachment":{
       "type":"image",
@@ -39,7 +27,9 @@ var jokes = [{
   "answer":{
     "text":"因為魔法少年賈修"
   }
-}];
+}];*/
+
+const jokes = require('./jokes.js');
 
 
 // The rest of the code implements the routes for our Express server.
@@ -154,16 +144,12 @@ function receivedPostback(event) {
   switch (payload) {
     case 'yes':
       tellJoke(senderID);
-      setTimeout(function() {
-        askOneMoreJoke(senderID);
-      }, 2000);
+      askOneMoreJoke(senderID);
       break;
     case 'no':
       sendTextMessage(senderID, "但我還是要講");
       tellJoke(senderID);
-      setTimeout(function() {
-        askOneMoreJoke(senderID);
-      }, 2000);
+      askOneMoreJoke(senderID);
       break;
     default:
       sendDefaultMessage(senderID);
@@ -276,34 +262,36 @@ function tellJoke(recipientId) {
 }
 
 function askOneMoreJoke(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      "attachment":{
-        "type":"template",
-        "payload":{
-          "template_type":"button",
-          "text":"要不要再聽一個？",
-          "buttons":[
-            {
-              "type":"postback",
-              "title":"好啊",
-              "payload":"yes"
-            },
-            {
-              "type":"postback",
-              "title":"不要",
-              "payload":"no"
-            }
-          ]
+  setTimeout(function() {
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      message: {
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"button",
+            "text":"要不要再聽一個？",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"好啊",
+                "payload":"yes"
+              },
+              {
+                "type":"postback",
+                "title":"不要",
+                "payload":"no"
+              }
+            ]
+          }
         }
       }
-    }
-  };
-    
-  callSendAPI(messageData);
+    };
+
+    callSendAPI(messageData);
+  }, 1000);
 }
 
 function callSendAPI(messageData) {
@@ -326,19 +314,6 @@ function callSendAPI(messageData) {
       console.error(error);
     }
   });  
-}
-
-function loadjson(json) {
-  var xmlhttp = new XMLHttpRequest();
-  var obj;
-  xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-          obj = JSON.parse(this.responseText);
-      }
-  };
-  xmlhttp.open("GET", json, true);
-  xmlhttp.send();
-  return obj;
 }
 
 // Set Express to listen out for HTTP requests
