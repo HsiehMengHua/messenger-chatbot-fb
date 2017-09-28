@@ -83,4 +83,11 @@ module.exports = [{
   "answer":{
     "text":"我想其中另有引擎"
   }
+},{
+  "question":{
+    "text":"頂新是甚麼顏色？"
+  },
+  "answer":{
+    "text":"垃圾"
+  }
 }];
