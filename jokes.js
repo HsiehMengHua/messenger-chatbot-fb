@@ -3,12 +3,25 @@ module.exports = [{
     "attachment":{
       "type":"image",
       "payload":{
-        "url":"https://i.imgur.com/bvgRsBv.jpg",
+        "url":"http://i.imgur.com/bvgRsBv.jpg",
         "is_reusable":true
       }
     }
   }, 
   "answer":{}
+},{
+  "question":{
+    "text":"為什麼耶穌打不到蚊子？"
+  },
+  "answer":{
+    "attachment":{
+      "type":"image",
+      "payload":{
+        "url":"http://i.imgur.com/WUJPehQ.jpg",
+        "is_reusable":true
+      }
+    }
+  }
 },{
   "question":{
     "text":"為什麼哈利波特不吃冰？"
@@ -21,6 +34,27 @@ module.exports = [{
     "text":"哪個姓氏的人脾氣最差？"
   },
   "answer":{
-    "text":"呂\n\n\n\n\n屢試不爽"
+    "text":"呂\n\n\n\n\n\n\n\n\n屢試不爽"
+  }
+},{
+  "question":{
+    "text":"為什麼獨甲仙會絕種？"
+  },
+  "answer":{
+    "text":"因為牠是甲蟲"
+  }
+},{
+  "question":{
+    "text":"哪一個相態做錯事會被原諒？"
+  },
+  "answer":{
+    "text":"氣態，因為他不是故意的"
+  }
+},{
+  "question":{
+    "text":"害羞的嬸嬸，猜一個藝人"
+  },
+  "answer":{
+    "text":"畢書盡"
   }
 }];
