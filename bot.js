@@ -100,7 +100,7 @@ function receivedMessage(event) {
         sendDefaultMessage(senderID);
     }
   } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
+    sendTextMessage(senderID, "😂");
   }
 }
 
@@ -251,7 +251,7 @@ function tellJoke(recipientId) {
   
   setTimeout(function() {
     callSendAPI(answerMessageData);
-  }, 3000);
+  }, 4000);
 }
 
 function askOneMoreJoke(recipientId) {
