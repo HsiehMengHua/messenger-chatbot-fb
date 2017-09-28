@@ -48,7 +48,7 @@ module.exports = [{
     "text":"哪一個相態做錯事會被原諒？"
   },
   "answer":{
-    "text":"氣態，因為他不是故意的"
+    "text":"氣態，因為他不是固液的"
   }
 },{
   "question":{
