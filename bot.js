@@ -244,11 +244,12 @@ function tellJoke(recipientId) {
     message: jokes[1].answer
   };
   
-  callSendAPI(questionMessageData);
+  //callSendAPI(questionMessageData);
+  callSendAPI(answerMessageData);
   
-  setTimeout(function() {
+  /*setTimeout(function() {
     callSendAPI(answerMessageData);
-  }, 3000);
+  }, 3000);*/
 }
 
 function askOneMoreJoke(recipientId) {
