@@ -95,7 +95,7 @@ function receivedMessage(event) {
       case 'generic':
         sendGenericMessage(senderID);
         break;
-      /*case '好':
+      case '好':
       case '好啊':
       case '好阿':
         tellJoke(senderID);
@@ -105,7 +105,7 @@ function receivedMessage(event) {
       case '不要':
         sendTextMessage(senderID, "不要就不要");
         break;
-      */
+      
       default:
         sendDefaultMessage(senderID);
     }
