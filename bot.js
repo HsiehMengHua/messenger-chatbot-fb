@@ -127,7 +127,9 @@ function receivedPostback(event) {
       break;
     case 'no':
       sendTextMessage(senderID, "但我還是要講");
-      tellJoke(senderID);
+      setTimeout(function(){
+        tellJoke(senderID);
+      },1000);
       askOneMoreJoke(senderID);
       break;
     default:
