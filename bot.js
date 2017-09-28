@@ -232,18 +232,19 @@ function sendDefaultMessage(recipientId) {
 }
 
 function tellJoke(recipientId) {
+  var jokeIndex = getRandomInt(0, jokes.length);
   var questionMessageData = {
     recipient: {
       id: recipientId
     },
-    message: jokes[1].question
+    message: jokes[jokeIndex].question
   };
   
   var answerMessageData = {
     recipient: {
       id: recipientId
     },
-    message: jokes[1].answer
+    message: jokes[jokeIndex].answer
   };
   
   callSendAPI(questionMessageData);
@@ -264,7 +265,7 @@ function askOneMoreJoke(recipientId) {
           "type":"template",
           "payload":{
             "template_type":"button",
-            "text":"要不要再聽一個？",
+            "text":"要不要再來一個？",
             "buttons":[
               {
                 "type":"postback",
@@ -281,7 +282,7 @@ function askOneMoreJoke(recipientId) {
         }
       }
     };
-
+    
     callSendAPI(messageData);
   }, 4000);
 }
@@ -306,6 +307,10 @@ function callSendAPI(messageData) {
       console.error(error);
     }
   });  
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Set Express to listen out for HTTP requests
