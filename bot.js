@@ -240,7 +240,14 @@ function tellJoke(recipientId) {
     recipient: {
       id: recipientId
     },
-    message: obj_joke_1
+    message: {
+      "attachment":{
+        "type":"image",
+        "payload":{
+          "url":"https://i.imgur.com/bvgRsBv.jpg",
+          "is_reusable":true
+        }
+      }
     }
   };
     
