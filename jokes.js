@@ -90,4 +90,11 @@ module.exports = [{
   "answer":{
     "text":"垃圾"
   }
+},{
+  "question":{
+    "text":"哪個殺手只會說英文？"
+  },
+  "answer":{
+    "text":"銀翼殺手"
+  }
 }];
